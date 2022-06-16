@@ -1,0 +1,82 @@
+<form action="{{ url_for('download') }}" method="POST">
+  <div class="row">
+    <div class="col-6">
+      {% if columns_1 %}
+      <div class="form-group">
+        <label for="file1" class="form-label">{{ filename_1 }}</label>
+	<select multiple="" class="form-select" id="file1" name="left_on">
+          {% for column in columns_1 %}
+          <option value="{{ column }}">{{ column }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      {% endif %}
+    </div>
+    <div class="col-6">
+      {% if columns_2 %}
+      <div class="form-group">
+        <label for="file2" class="form-label">{{ filename_2 }}</label>
+        <select multiple="" class="form-select" id="file2" name="right_on">
+          {% for column in columns_2 %}
+          <option value="{{ column }}">{{ column }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  {% if columns_1 or columns_2 %}
+  <div class="row mt-4">
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col">
+      <div class="btn-group" role="group">
+        <label class="btn btn-outline-primary">
+          <input
+            type="radio"
+            class="btn-check"
+            value="left"
+            name="how"
+            onchange="this.form.submit()"
+            onclick="waiting()"
+          />
+          Left
+        </label>
+        <label class="btn btn-outline-success">
+          <input
+            type="radio"
+            class="btn-check"
+            value="right"
+            name="how"
+            onchange="this.form.submit()"
+            onclick="waiting()"
+          />
+          Right
+        </label>
+        <label class="btn btn-outline-warning">
+          <input
+            type="radio"
+            class="btn-check"
+            value="inner"
+            name="how"
+            onchange="this.form.submit()"
+            onclick="waiting()"
+          />
+          Inner
+        </label>
+        <label class="btn btn-outline-danger">
+          <input
+            type="radio"
+            class="btn-check"
+            value="outer"
+            name="how"
+            onchange="this.form.submit()"
+            onclick="waiting()"
+          />
+          Outer
+        </label>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</form>

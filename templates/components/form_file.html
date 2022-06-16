@@ -1,0 +1,104 @@
+<form
+  action="{{ url_for('index') }}"
+  method="POST"
+  enctype="multipart/form-data"
+>
+  <div class="form-group">
+    <label class="form-label">Document 1</label>
+    <div class="form-group">
+      <div class="input-group mb-3">
+        <input type="file" name="file1" class="form-control" />
+      </div>
+      <label class="form-label">CSV separated by: </label>
+      <div class="btn-group" role="group">
+        <input
+          type="radio"
+          class="btn-check"
+          name="sep1"
+          id="semicolon"
+          value=";"
+          autocomplete="off"
+        />
+        <label class="btn btn-outline-dark" for="semicolon">Semicolon</label>
+        <input
+          type="radio"
+          class="btn-check"
+          name="sep1"
+          id="comma"
+          value=","
+          autocomplete="off"
+          checked
+        />
+        <label class="btn btn-outline-dark" for="comma">Comma</label>
+        <input
+          type="radio"
+          class="btn-check"
+          name="sep1"
+          id="space"
+          value=" "
+          autocomplete="off"
+        />
+        <label class="btn btn-outline-dark" for="space">Space</label>
+        <input
+          type="radio"
+          class="btn-check"
+          name="sep1"
+          id="tab"
+          value="	"
+          autocomplete="off"
+        />
+        <label class="btn btn-outline-dark" for="tab">Tab</label>
+      </div>
+    </div>
+    <hr />
+    <label class="form-label">Document 2</label>
+    <div class="form-group">
+      <div class="input-group mb-3">
+        <input type="file" name="file2" class="form-control" />
+      </div>
+      <label class="form-label">CSV separated by: </label>
+      <div class="btn-group" role="group">
+        <input
+          type="radio"
+          class="btn-check"
+          name="sep2"
+          id="semicolon2"
+          value=";"
+          autocomplete="off"
+        />
+        <label class="btn btn-outline-dark" for="semicolon2">Semicolon</label>
+        <input
+          type="radio"
+          class="btn-check"
+          name="sep2"
+          id="comma2"
+          value=","
+          autocomplete="off"
+          checked
+        />
+        <label class="btn btn-outline-dark" for="comma2">Comma</label>
+        <input
+          type="radio"
+          class="btn-check"
+          name="sep2"
+          id="space2"
+          value=" "
+          autocomplete="off"
+        />
+        <label class="btn btn-outline-dark" for="space2">Space</label>
+        <input
+          type="radio"
+          class="btn-check"
+          name="sep2"
+          id="tab2"
+          value="	"
+          autocomplete="off"
+        />
+        <label class="btn btn-outline-dark" for="tab2">Tab</label>
+      </div>
+    </div>
+  </div>
+  <div class="d-grid gap-2">
+    <input class="btn btn-primary mt-5" type="submit"/>
+  </div>
+</form>
