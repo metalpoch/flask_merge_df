@@ -2,31 +2,16 @@
 Start Flask App
 """
 import asyncio
-from flask import Flask, render_template, request, session, send_file
-from werkzeug.utils import secure_filename
-from src import dataframe
+from os import path
 
-import random
-import string
-from os import path, makedirs
-from shutil import rmtree
+from flask import Flask, render_template, request, send_file, session
+from werkzeug.utils import secure_filename
+
+from src import dataframe, temporal_directory
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'cachapa frita'
+app.config["SECRET_KEY"] = "cachapa frita"
 PATH = path.dirname(path.abspath(__file__))
-
-
-def create_temporal_folder() -> str:
-    tmp_directory = path.join(PATH, "static", "documents")
-
-    characters = string.hexdigits
-    characters = ''.join(random.choice(characters) for i in range(20))
-
-    tmp_directory = path.join(tmp_directory, characters)
-
-    makedirs(path.join(tmp_directory), exist_ok=True)
-
-    return tmp_directory
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -37,14 +22,11 @@ async def index():
         if files[0].filename == '' or files[1].filename == '':
             return render_template("index.html")
 
-        if session.get("data"):  # Remove tmp_directory legacy
-            try:
-                rmtree(session["data"][0]["tmp_directory"])
-            except FileNotFoundError as e:
-                print(e)
+        if session.get("data"):  # Remove old tmp_directory
+            temporal_directory.remove(session["data"][0]["tmp_directory"])
             session.pop("data")
 
-        tmp_directory = create_temporal_folder()
+        tmp_directory = temporal_directory.create(PATH)
 
         data = []  # Index 0 == "file left". Index 1 == "file right"
         for file, sep in zip(files, separators):
