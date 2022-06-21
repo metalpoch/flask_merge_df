@@ -9,16 +9,22 @@
     shrink-to-fit=no"
     />
     <meta name="author" content="Keiber Urbila" />
-
-    {# Bootstrap core CSS #} <link rel="stylesheet" type=text/css media="screen"
-    href="{{ url_for('static', filename='css/bootstrap.min.css') }}" >
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='imgs/favicon.ico') }}">
+    <link rel="stylesheet" type=text/css media="screen" href="{{
+    url_for('static', filename='css/bootstrap.min.css') }}" >
+    <script src="{{ url_for('static', filename='js/sweetalert2.min.js') }}"></script>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='imgs/favicon.ico') }}"
+    />
     <title>Flask Merge DF</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="{{ url_for('index') }}">Flask Merge DataFrames</a>
+        <a class="navbar-brand" href="{{ url_for('index') }}"
+          >Flask Merge DataFrames</a
+        >
         <button
           class="navbar-toggler"
           type="button"
@@ -36,10 +42,20 @@
               <a class="nav-link" href="{{ url_for('index') }}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://www.instagram.com/keiberup/" target="_blank">Instagram</a>
+              <a
+                class="nav-link"
+                href="https://www.instagram.com/keiberup/"
+                target="_blank"
+                >Instagram</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://github.com/metalpoch" target="_blank">GitHub</a>
+              <a
+                class="nav-link"
+                href="https://github.com/metalpoch"
+                target="_blank"
+                >GitHub</a
+              >
             </li>
           </ul>
         </div>
@@ -49,7 +65,18 @@
     {% block content %} {% endblock %}
     <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
     <script>
-      const waiting = () => console.log("ESPERANDO");
+      const message = (title) => {
+        Swal.fire({
+          //title: "Uploading Documents",
+	  title: title,
+          html: "Please wait...",
+          timer: 0,
+          timerProgressBar: !1,
+          didOpen: () => {
+            Swal.showLoading();
+          },
+        });
+      };
     </script>
   </body>
 </html>
