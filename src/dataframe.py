@@ -1,7 +1,6 @@
 import asyncio
 import pandas as pd
 from werkzeug.datastructures import FileStorage
-# import polars as pl
 
 
 async def get_columns(file: FileStorage, sep:str) -> list:
