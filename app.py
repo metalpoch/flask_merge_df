@@ -10,7 +10,7 @@ from werkzeug.utils import secure_filename
 from src import dataframe, temporal_directory
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "cachapa frita"
+app.config["SECRET_KEY"] = "5vnPmxv8WgiwMGPFgYGzpbu6EwCxhM"
 PATH = path.dirname(path.abspath(__file__))
 
 
