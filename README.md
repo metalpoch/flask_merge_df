@@ -2,6 +2,7 @@
 #### *A simple web app created with Python 3.10 and Flask 2.1*
 
 Merge your data frames with this web app built in Python with the Flask microframework.
+![image](https://raw.githubusercontent.com/metalpoch/flask_merge_df/main/static/imgs/example.gif)
 
 ## Features
 - Upload your dataframes
@@ -60,7 +61,7 @@ Verify the deployment by navigating to your server address in
 your preferred browser.
 
 ```sh
-127.0.0.1:8000
+127.0.0.1:5000
 ```
 
 ## Licence
