@@ -13,7 +13,7 @@ Merge your data frames with this web app built in Python with the Flask microfra
 ## Tech
 This web app uses a number of open source projects to work properly:
 
-- [Flask] - Microframework escrito en Python y diseñado para facilitar el desarrollo de app web MVC.
+- [Flask] - Microframework written in Python and designed to facilitate the development of MVC web apps.
 - [Jinja2] - Jinja2 is a full-featured template engine for Python.
 - [Werkzeug] - Werkzeug is a comprehensive WSGI web application library.
 - [Pandas] - Easy-to-use data structures and data analysis tools for the Python programming language.
